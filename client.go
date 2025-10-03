@@ -22,7 +22,7 @@ type Client struct {
 	tokenSource oauth2.TokenSource
 
 	info            *InfoResponse
-	HeyframeVersion *version.Version
+	HeyFrameVersion *version.Version
 
 	common              ClientService
 	Repository          Repository
@@ -62,7 +62,7 @@ func NewApiClient(ctx context.Context, shopUrl string, credentials OAuthCredenti
 	shopClient.info = infoResponse
 
 	if infoResponse.Version != "" {
-		shopClient.HeyframeVersion, err = version.NewVersion(infoResponse.Version)
+		shopClient.HeyFrameVersion, err = version.NewVersion(infoResponse.Version)
 		if err != nil {
 			return nil, fmt.Errorf("failed to parse heyframe version %q: %w", infoResponse.Version, err)
 		}
